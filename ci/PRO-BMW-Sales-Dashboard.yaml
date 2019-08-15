@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: pro-bmw-sales-dashboard
+  namespace: pro
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pro-bmw-sales-dashboard
+    spec:
+      containers:
+        - name: pro-bmw-sales-dashboard
+          image: registry.cn-beijing.aliyuncs.com/bmwpoc/pro-bmw-sales-dashboard:{version}
+          ports:
+            - name: http-port
+              containerPort: 20013
+          env:
+            - name: spring_profiles_active
+              value: k8s
+      imagePullSecrets:
+        - name: bmwpoc
