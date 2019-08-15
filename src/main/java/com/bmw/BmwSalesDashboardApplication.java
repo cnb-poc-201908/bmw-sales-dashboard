@@ -8,7 +8,6 @@ public class BmwSalesDashboardApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BmwSalesDashboardApplication.class, args);
-
 	}
 
 }
